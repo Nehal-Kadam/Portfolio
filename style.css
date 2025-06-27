@@ -1,0 +1,290 @@
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(to right, #dbeafe, #f3f4f6);
+  color: #333;
+}
+
+/* Navbar */
+/* Navigation Bar */
+.navbar {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #2575fc;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+}
+
+/* 💥 POPUP on Hover */
+.navbar a:hover {
+  animation: bounce 0.5s ease;
+  background-color: #e0f0ff;
+  box-shadow: 0 8px 20px rgba(37, 117, 252, 0.2);
+}
+
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 100px 60px;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  min-height: 40vh;
+}
+
+.hero-left {
+  flex: 1 1 45%;
+  min-width: 280px;
+  z-index: 2;
+  padding-left: 60px; /* adjust this to shift name more toward center */
+}
+
+
+.hero-right {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.profile-photo {
+  width: 100%;
+  max-width: 295px;  /* or even 400px if you want */
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease;
+}
+.profile-photo:hover {
+  transform: scale(1.05);
+}
+.intro-popup {
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.intro-popup:hover {
+  transform: scale(1.05);
+  
+}
+
+
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+}
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 70px;
+}
+.resume-btn {
+  display: inline-block;
+  background-color: white;
+  color: #2575fc;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 10px;
+  margin-left: 200px; /* Shift button to right */
+}
+
+
+.resume-btn:hover {
+  background-color: #ffdd57;
+  color: black;
+}
+
+/* Floating Papers */
+.hero-animation {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-animation.left { left: 0; }
+.hero-animation.right { right: 0; }
+
+.float-paper {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background-color: white;
+  border-radius: 4px;
+  opacity: 0;
+  animation: sideFloat 8s infinite ease-in-out;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #d3e0f7 0px,
+    #d3e0f7 1px,
+    transparent 1px,
+    transparent 10px
+  );
+}
+.hero-animation.left .float-paper:nth-child(1) { left: 10px; top: 80%; animation-delay: 0s; }
+.hero-animation.left .float-paper:nth-child(2) { left: 30px; top: 90%; animation-delay: 1.5s; }
+.hero-animation.left .float-paper:nth-child(3) { left: 50px; top: 85%; animation-delay: 3s; }
+.hero-animation.right .float-paper:nth-child(1) { right: 10px; top: 80%; animation-delay: 0.5s; }
+.hero-animation.right .float-paper:nth-child(2) { right: 30px; top: 90%; animation-delay: 2s; }
+.hero-animation.right .float-paper:nth-child(3) { right: 50px; top: 85%; animation-delay: 3.5s; }
+
+@keyframes sideFloat {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+  25%  { opacity: 1; }
+  50%  { transform: translateY(-50px) rotate(45deg); }
+  100% { transform: translateY(-100px) rotate(90deg); opacity: 0; }
+}
+
+/* Section Styling */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background: #e6f0ff;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+.section h2 {
+  color: #6a11cb;
+  margin-bottom: 20px;
+  border-left: 5px solid #2575fc;
+  padding-left: 10px;
+}
+.section p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+.hover-section:hover {
+  transform: scale(1.02);
+  background-color: #d3e8ff;
+  transition: 0.3s;
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.project-card {
+  padding: 20px;
+  background-color: #f3f8ff;
+  border-left: 6px solid #6a11cb;
+  border-radius: 10px;
+}
+.project-card:hover {
+  background-color: #d6e4ff;
+  transform: scale(1.03);
+}
+
+/* Skills & Achievements */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.skills-column {
+  flex: 1 1 300px;
+  background: #f7faff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+.skills-column ul {
+  padding-left: 20px;
+}
+.skills-column h3 {
+  color: #2575fc;
+}
+
+
+.skills-column:hover {
+  animation: bounce-box 0.4s ease;
+  background-color: #e8f0ff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+/* Contact */
+.contact a {
+  color: #2575fc;
+  font-weight: bold;
+  text-decoration: none;
+}
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #ffffff;
+  color: #666;
+  font-size: 0.9rem;
+}
+/* Social Icons Styling */
+.social-icons {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  font-size: 1.4rem;
+  color: #ffffff;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  background-color: #ffdd57;
+  color: #000;
+
+}
+.social-icons {
+  margin-top: 80px; /* Increase this value to add more space */
+  text-align: center;
+}
+.social-logo {
+  width: 24px;         /* Try 28px or 24px for smaller icons */
+  height: 24px;
+  border-radius: 00%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
