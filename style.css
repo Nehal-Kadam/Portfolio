@@ -289,7 +289,9 @@ footer {
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 /* 📱 Mobile Responsive Adjustments */
+/* 📱 FULL Mobile-Responsive CSS Fix */
 @media (max-width: 768px) {
+  /* HERO Section Adjustments */
   .hero {
     flex-direction: column;
     padding: 30px 15px;
@@ -299,6 +301,7 @@ footer {
   .hero-center {
     order: 2;
     margin-top: 20px;
+    align-items: center;
   }
 
   .hero-right {
@@ -308,38 +311,87 @@ footer {
 
   .profile-photo {
     max-width: 240px;
+    width: 100%;
     border-radius: 12px;
   }
 
   .name {
     font-size: 2rem;
+    margin: 10px 0;
   }
 
   .tagline {
     font-size: 1rem;
+    margin: 8px 0 14px;
   }
 
+  /* Centered Resume Button */
   .resume-btn {
+    display: inline-block;
+    margin: 10px auto 20px;
+    padding: 10px 22px;
     font-size: 0.95rem;
-    padding: 10px 16px;
-    margin-top: 10px;
+    background-color: #fff;
+    color: #2575fc;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    text-align: center;
+    transition: all 0.3s ease;
   }
 
-  .social-icons {
-    gap: 12px;
+  .resume-btn:hover {
+    background-color: #ffdd57;
+    color: black;
   }
 
+  /* NAVBAR Buttons - Stacked & Styled */
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 0;
+    margin: 0;
+    list-style: none;
+    gap: 10px;
+  }
+
+  .navbar ul li {
+    margin: 0;
+  }
+
+  .navbar ul li a {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #ffffff;
+    color: #2575fc;
+    border-radius: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar ul li a:hover {
+    background-color: #d6e4ff;
+    transform: scale(1.05);
+  }
+
+  /* Skills Grid - Vertical */
   .skills-grid {
     flex-direction: column;
     gap: 30px;
   }
 
-  .navbar ul {
-    flex-direction: column;
-    gap: 12px;
+  /* Social icons below resume */
+  .social-icons {
+    margin-top: 18px;
+    justify-content: center;
+    gap: 16px;
   }
 
-  .navbar {
-    padding: 10px;
+  .social-logo {
+    width: 32px;
+    height: 32px;
   }
 }
